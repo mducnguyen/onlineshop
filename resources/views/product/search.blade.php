@@ -1,4 +1,5 @@
 <form action="/product/search" method="get">
+  {{ $error }} <br />
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 	search: <input type="text" name="searchTerm" size="30" placeholder="search for some Product">	
 	<button type="submit">Search</button>

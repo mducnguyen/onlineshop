@@ -2,6 +2,7 @@
 use App\Product;
 use App\User;
 use Request;
+use Validator;
 use Illuminate\Http\RedirectResponse;
 class ProductController extends Controller {
 
@@ -23,15 +24,14 @@ class ProductController extends Controller {
 	}
 
 	public function add(){
-		$product = new Product();
+    $validator = Product::validate(Request::all());
+    if (!$validator->fails()) {
+      Product::save_product(Request::all());
+      return redirect('product');
+    } else {
+      return redirect('product')->with('message', 'Validation error');
+    }
 
-		$product->name = REQUEST::input('name');
-		$product->description = REQUEST::input('description');
-		$product->technicalDisc = REQUEST::input('technicalDisc');
-		$product->price = REQUEST::input('price');
-
-	    $product->save();
-	    return redirect('product');
 	}
 
 	public function editView($id) {
@@ -40,16 +40,20 @@ class ProductController extends Controller {
 	}
 
 	public function update($id){
+
 		$product = Product::find($id);
 
-		$product->name = REQUEST::input('name');
-		$product->description = REQUEST::input('description');
-		$product->technicalDisc = REQUEST::input('technicalDisc');
-		$product->price = REQUEST::input('price');
+    $validation = Product::validate(Request::all());
 
-	    $product->save();
-
+    if ($product == null) {
+	    return redirect('product')->with('message', 'Product with id '.$id.' cannot be found');
+    } else if ($validation->fails()) {
+	    return redirect('product')->with('message', 'Validation error');
+    } else {
+      $product->update_product(Request::all());
 	    return redirect('product');
+    }
+
 	}
 
 
@@ -59,9 +63,16 @@ class ProductController extends Controller {
 	    return redirect('product')->with('message', 'Product '.$product->name.' deleted!!');
 	}
 
-	public function search(){
+	public function search() {
 		$term = REQUEST::input('searchTerm');
-		$products = Product::where('name', 'like', "%$term%")->get();
-		return view('product.search', ['products' => $products]);
+
+    $validator = Validator::make(['searchTerm' => $term], ['searchTerm' => 'required']);
+
+    if ($validator->fails()) {
+      return view('product.search', ['products' => array(), 'error' => 'Please enter search term']);
+    } else {
+      $products = Product::where('name', 'like', "%$term%")->get();
+      return view('product.search', ['products' => $products, 'error' => '']);
+    }
 	}
 }
