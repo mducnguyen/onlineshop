@@ -77,7 +77,7 @@ class ProductController extends Controller {
     	
     	} else {
       		
-      		$products = Product::where('name', 'like', "%$term%")->get();
+        $products = Product::where('name', 'like', "%$term%")->get();
       	
       	return view('product.search', ['products' => $products, 'error' => '']);
     	}
