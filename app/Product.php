@@ -7,7 +7,14 @@ use Request;
 class Product extends Model {
 
 	protected $table = 'products';
-	protected $primaryKey = 'productsID';
+	protected $primaryKey = 'productID';
+  protected $fillable = [
+      'name',
+      'description',
+      'technicalDisc',
+      'price',
+  ];
+
 
   protected static $rules = [
     'name' => 'required',
@@ -27,14 +34,15 @@ class Product extends Model {
    */
   static function save_product(array $params) {
 
-      $product = new Product();
+      return Product::create($params);
+      // $product = new Product();
 
-      $product->name = $params['name'];
-      $product->description = $params['description'];
-      $product->technicalDisc = $params['technicalDisc'];
-      $product->price = $params['price'];
+      // $product->name = $params['name'];
+      // $product->description = $params['description'];
+      // $product->technicalDisc = $params['technicalDisc'];
+      // $product->price = $params['price'];
 
-      return $product->save();
+      // return $product->save();
   }
 
   /**
@@ -50,4 +58,7 @@ class Product extends Model {
       return $this->save();
   }
 
+  function images() {
+    return $this->hasMany('App\Image', 'ProductID');
+  }
 }

@@ -1,0 +1,47 @@
+.clear {
+  clear: both;
+}
+
+#PageWrapper {
+  width: 1200px;
+  margin: 0px auto;
+}
+
+#SearchForm input[name=searchTerm] {
+  display: inline-block;
+  width: 200px;
+}
+#SearchForm input[type=submit] {
+  display: inline-block;
+  width: 80px;
+}
+
+#SearchForm {
+  margin-top: 20px;
+  float: right;
+}
+
+#ProductList {
+	margin-top: 100px;
+}
+
+#ProductList .product {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+
+#ProductList .product_info { 
+}
+
+#ProductList img {
+  max-height: 150px;
+}
+
+#ProductList .image {
+}
+
+#ProductList .title {
+  margin-top : 20px;
+  font-size: 18px;
+}

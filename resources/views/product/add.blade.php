@@ -1,7 +1,14 @@
+@if(isset($errors))
+<ul>
+	<?php foreach ($errors->all() as $error) { ?>
+		<li><?=$error;?></li>
+	<?php } ?>
+</ul>
+@endif
 
-<head>
-
-</head>
+@if(Session::has('message'))
+	<p class="alert {{ Session::get('alert-class', 'alert-info') }}" style="background: pink">{{ Session::get('message') }}</p>
+@endif
 <form action="/product/save" method="post">
 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 	Product name:<br>

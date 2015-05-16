@@ -1,35 +1,36 @@
-<form action="product/search" method="get">
-	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-	search: <input type="text" name="searchTerm" size="30" placeholder="search for some Product">	
-	<button type="submit">Search</button>
-</form>
-@if(Session::has('message'))
-	<p class="alert {{ Session::get('alert-class', 'alert-info') }}" style="background: pink">{{ Session::get('message') }}</p>
-@endif
+@extends('app')
 
-<table border=1>
-	<tr>
-		<th>Name</th>
-		<th>Description</th>
-		<th>Technical Spec</th>
-		<th>Price</th>
-		<th>Action</th>
-	</tr>
+@section('content')
+{!! Form::open(['action' => array('ProductController@search'), 'method' => 'get', 'id' => 'SearchForm']) !!}
+  {!! Form::label('searchTerm', 'Search: ')!!}
+  {!! Form::text('searchTerm', null, ['class' => 'form-control'])!!}
+  {!! Form::submit('Search', ['class' => 'btn btn-primary form-control'])!!}
+{!! Form::close() !!}
 
-<?php foreach ($products as $p) { ?>
+<div class="clear"></div>
 
-	<tr>
-		<td><a href=""><?=$p->name?></a></td>	
-		<td><?=$p->description?></td>
-		<td><?=$p->technicalDisc?></td>
-		<td><?=$p->price?></td>
-		<td><a href="product/<?=$p->productsID?>/edit">Edit</a> <a href="product/<?=$p->productsID?>/delete">Delete</a></td>
-	</tr>
+<div class="row" id="ProductList">
+  @foreach ($products as $product)
+  <a href="{{ action('ProductController@show', [$product->productID]) }}">
+    <div class="col-xs-3 product">
+    	<div class="image">
+    		@if (!$product->images->isEmpty())
+    		<?php $image = $product->images->first(); ?>
+    		{!! HTML::image("img/$image->image") !!}
+    		@endif
+    	</div>
+      
+      <div class="product_info">
+        <div class="title">
+          {{ $product->name }}
+        </div>
+        <div class="price">
+          {{ number_format($product->price, 2, ',', '.') }} &euro;
+        </div>
+      </div>
+    </div>
+  </a>
+  @endforeach
+</div>
 
-
-<?php } ?>
-</table>
-<a href="product/add">
-<br>
-<button>Add Product</button>
-</a>
+@endsection

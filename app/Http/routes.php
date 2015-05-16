@@ -11,22 +11,24 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-
-Route::get('home', 'HomeController@index');
+Route::get('/', 'ProductController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('product','ProductController@index');
-Route::get('/product/save','ProductController@add');
-Route::post('/product/save','ProductController@add');
+Route::get('/product_manager','ProductController@index');
+
 Route::get('/product/add','ProductController@addView');
-
 Route::get('/product/{id}/edit', 'ProductController@editView');
-Route::post('/product/{id}/update', 'ProductController@update');
 
+Route::post('/product/save','ProductController@add');
+Route::post('/product/{id}/update', 'ProductController@update');
 Route::get('/product/{id}/delete', 'ProductController@delete');
+
 Route::get('/product/search','ProductController@search');
+Route::get('/product/{id}', 'ProductController@show');
+
+//learning Laravel
+Route::get('/bladeTesting', 'LearningController@showBlade');
