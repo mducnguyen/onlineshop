@@ -18,17 +18,19 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('/product_manager','ProductController@index');
 
-Route::get('/product/add','ProductController@addView');
-Route::get('/product/{id}/edit', 'ProductController@editView');
-
-Route::post('/product/save','ProductController@add');
-Route::post('/product/{id}/update', 'ProductController@update');
-Route::get('/product/{id}/delete', 'ProductController@delete');
-
+Route::get('/product/','ProductController@index');
 Route::get('/product/search','ProductController@search');
 Route::get('/product/{id}', 'ProductController@show');
 
 //learning Laravel
 Route::get('/bladeTesting', 'LearningController@showBlade');
+
+
+Route::get('/admin/product', 'Admin\ProductController@index');
+Route::get('/admin/product/create','Admin\ProductController@create');
+Route::get('/admin/product/{id}/edit', 'Admin\ProductController@edit');
+Route::post('/admin/product','Admin\ProductController@store');
+Route::post('/admin/product/{id}/update', 'Admin\ProductController@update');
+Route::get('/admin/product/{id}/delete', 'Admin\ProductController@delete');
+Route::get('/admin/product/search','Admin\ProductController@search');

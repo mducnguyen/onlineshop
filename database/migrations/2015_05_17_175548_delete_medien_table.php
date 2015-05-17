@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTimestamp extends Migration {
+class DeleteMedienTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,7 @@ class AddTimestamp extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('products', function($table)
-		{
-      		$table->nullableTimestamps(); 
-		});	
+		Schema::dropIfExists('medien');
 	}
 
 	/**
@@ -25,9 +22,12 @@ class AddTimestamp extends Migration {
 	 */
 	public function down()
 	{
-    Schema::table('products', function($table) {
-      $table->dropTimestamps(); 
-    });
+		Schema::create('medien', function(Blueprint $table)
+		{
+			$table->increments('mediaID');
+			$table->timestamps();
+			$table->string('filename');
+		});
 	}
 
 }

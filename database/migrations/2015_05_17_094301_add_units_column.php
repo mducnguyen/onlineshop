@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTimestamp extends Migration {
+class AddUnitsColumn extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,9 @@ class AddTimestamp extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('products', function($table)
+		Schema::table('products', function(Blueprint $table)
 		{
-      		$table->nullableTimestamps(); 
+			$table->integer('units')->unsigned()->nullable();
 		});	
 	}
 
@@ -25,9 +25,10 @@ class AddTimestamp extends Migration {
 	 */
 	public function down()
 	{
-    Schema::table('products', function($table) {
-      $table->dropTimestamps(); 
-    });
+		Schema::table('products', function($table)
+		{
+			$table->dropColumn([units]);
+		});	
 	}
 
 }

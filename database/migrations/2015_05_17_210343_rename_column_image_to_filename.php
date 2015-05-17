@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTimestamp extends Migration {
+class RenameColumnImageToFilename extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class AddTimestamp extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('products', function($table)
+		Schema::table('images', function(Blueprint $table)
 		{
-      		$table->nullableTimestamps(); 
-		});	
+      $table->renameColumn('image', 'filename');
+		});
 	}
 
 	/**
@@ -25,9 +25,10 @@ class AddTimestamp extends Migration {
 	 */
 	public function down()
 	{
-    Schema::table('products', function($table) {
-      $table->dropTimestamps(); 
-    });
+		Schema::table('images', function(Blueprint $table)
+		{
+      $table->renameColumn('filename', 'image');
+		});
 	}
 
 }

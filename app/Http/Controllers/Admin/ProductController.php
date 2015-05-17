@@ -1,5 +1,8 @@
-<?php namespace App\Http\Controllers;
+<?php
+namespace App\Http\Controllers\Admin;
+
 use App\Product;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateProductRequest;
 use App\Image;
 use App\User;
@@ -7,6 +10,7 @@ use Request;
 use Session;
 use Validator;
 use Illuminate\Http\RedirectResponse;
+
 class ProductController extends Controller {
 
 	/**
@@ -20,43 +24,33 @@ class ProductController extends Controller {
 
 		$data = ['products' => $products];
 
-		return view('product.product', $data);
+		return view('admin.product.product', $data);
 	}
 
 	public function create() {
-		return view('product.create');
+		return view('admin.product.create');
 	}
 
 	public function store(CreateProductRequest $request){
 
-		// $validator = Product::validate(Request::all());
-		// if (!$validator->fails()) {
-			Product::save_product(Request::all());
-			return redirect('/');
-		// } else {
-			// return redirect()->to('/product/create')->withInput()->withErrors($validator->errors());
-		// }
-
+		Product::save_product(Request::all());
+		return redirect('/');
 	}
 
-	public function editView($id) {
+	public function edit($id) {
 		$product = Product::find($id);
-		return view('product.edit', ['product' => $product]);
+		return view('admin.product.edit', ['product' => $product]);
 	}
 
-	public function update($id){
+	public function update($id, CreateProductRequest $request){
 
 		$product = Product::find($id);
-
-	    $validation = Product::validate(Request::all());
 
 	    if ($product == null) {
-		    return redirect('product_manager')->with('message', 'Product with id '.$id.' cannot be found');
-	    } else if ($validation->fails()) {
-		    return redirect('/product/'.$id.'/edit')->with('message', 'Validation error');
+		    return redirect('/admin/product')->with('message', 'Product with id '.$id.' cannot be found');
 	    } else {
-	      $product->update_product(Request::all());
-		    return redirect('/');
+	    	$product->update_product(Request::all());
+	    	return redirect('/admin/product');
 	    }
 
 	}
@@ -65,7 +59,7 @@ class ProductController extends Controller {
 	public function delete($id) {
 		$product = Product::find($id);
 		$product->delete();
-	    return redirect('product_manager')->with('message', 'Product '.$product->name.' deleted!!');
+	    return redirect('/admin/product')->with('message', 'Product '.$product->name.' deleted!!');
 	}
 
 	public function search() {
@@ -84,9 +78,9 @@ class ProductController extends Controller {
     	}
 	}
 
-	public function show($id) {
-		$product = Product::find($id);
+	// public function show($id) {
+	// 	$product = Product::find($id);
 
-		return view('product.show', compact('product'));
-	}
+	// 	return view('product.show', compact('product'));
+	// }
 }

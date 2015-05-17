@@ -5,7 +5,7 @@
     	<div class="image">
     		@if (!$product->images->isEmpty())
     		<?php $image = $product->images->first(); ?>
-    		{!! HTML::image("img/$image->image") !!}
+    		{!! HTML::image("img/$image->filename") !!}
     		@endif
     	</div>
       

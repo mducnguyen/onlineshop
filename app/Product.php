@@ -11,15 +11,16 @@ class Product extends Model {
   protected $fillable = [
       'name',
       'description',
-      'technicalDisc',
+      'technicalSpec',
       'price',
+      'units'
   ];
 
 
   protected static $rules = [
     'name' => 'required',
     'description' => 'required|min:10',
-    'technicalDisc' => 'required|min:10',
+    'technicalSpec' => 'required|min:10',
     'price' => 'required'
   ];
 
@@ -35,30 +36,25 @@ class Product extends Model {
   static function save_product(array $params) {
 
       return Product::create($params);
-      // $product = new Product();
-
-      // $product->name = $params['name'];
-      // $product->description = $params['description'];
-      // $product->technicalDisc = $params['technicalDisc'];
-      // $product->price = $params['price'];
-
-      // return $product->save();
   }
 
   /**
    * @param array
    */
   function update_product(array $params) {
-
-      $this->name = $params['name'];
-      $this->description = $params['description'];
-      $this->technicalDisc = $params['technicalDisc'];
-      $this->price = $params['price'];
-
-      return $this->save();
+      return Product::update($params);
   }
 
   function images() {
     return $this->hasMany('App\Image', 'ProductID');
+  }
+
+  function categories() {
+    $this->belongsToMany('App\Category');
+  }
+
+
+  function subParts() {
+    return $this->belongsToMany('App\Product', "components", "subPart");
   }
 }
