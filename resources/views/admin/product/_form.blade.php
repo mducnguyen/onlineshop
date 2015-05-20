@@ -34,5 +34,39 @@
   </div>
   
   <div class="col-xs-6">
+    
+    <div class="form-group" id="CategorySelection">
+      {!! Form::label('categories', 'Categories: ') !!}
+      {!! Form::select('categories[]', $all_cats, $selected_cats, ['multiple' => true, 'class' => 'form-control']) !!}
+    </div>  
+
+    <div class="form-group" id="SubpartSelection">
+      {!! Form::label('subparts', 'Components: ') !!}
+      {!! Form::select('subparts[]', $all_subparts, $selected_subparts, ['multiple' => true, 'class' => 'form-control']) !!}
+    </div>  
+
+    <div class="form-group" id="imageSelection">
+      {!! Form::label('image', 'Images: ') !!}
+      {!! Form::file('image') !!}
+
+    </div>
+    <div id="uploadedImages">
+      @foreach ($images as $image)
+        {!! HTML::image("img/".$image->filename) !!}
+
+        {!! link_to_action('Admin\ImageController@destroy', '&#10008;', [$image->id], ['class' => "btn btn-default"]) !!}
+
+      @endforeach 
+    </div>
+
+
+     {{-- <div class="form-group" id="uploadedImage">
+      {!! Form::label('uploadedImage', 'Uploaded Image: ') !!}
+      {!! Form::select('uploadedImage[]', $all_subparts, $selected_subparts, ['multiple' => true, 'class' => 'form-control']) !!}
+    </div>   --}}
+
+
+
   </div>
+
 </div>

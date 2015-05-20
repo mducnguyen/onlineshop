@@ -1,0 +1,80 @@
+
+#PageWrapper {
+  width: 1200px;
+  margin: 0px auto;
+}
+
+#ProductList {
+  width: 70%;   
+  margin: 0 auto;
+
+}
+
+#ProductList #addButton{
+  float: right;
+
+}
+
+#ProductList form {
+  display: inline-block;
+}
+
+#CategoryList form {
+  display: inline-block;
+}
+
+#SearchForm input[name=searchTerm] {
+  display: inline-block;
+  width: 200px;
+}
+#SearchForm input[type=submit] {
+  display: inline-block;
+  width: 80px;
+}
+
+#SearchForm {
+  margin-top: 20px;
+  float: right;
+}
+
+#CategorySelection {
+  height: 200px;
+  margin-bottom: 39px;
+}
+
+#CategorySelection select {
+  height: 100%;
+}
+
+#SubpartSelection {
+  height: 200px;
+  margin-bottom: 39px;
+}
+
+#SubpartSelection select {
+  height: 100%;
+}
+
+#imageSelection {
+  height: 30px;
+  margin-top: 43px;
+}
+
+#uploadedImages img {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+input#image {
+  display: inline-block;
+  margin : 10px;
+}
+
+#uploadedImage {
+  height: 163 px;
+  margin-bottom: 39px;
+}
+
+#uploadedImage select {
+  height: 100%;
+}

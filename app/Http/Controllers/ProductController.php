@@ -3,6 +3,7 @@ use App\Product;
 use App\Http\Requests\CreateProductRequest;
 use App\Image;
 use App\User;
+use App\Category;
 use Request;
 use Session;
 use Validator;
@@ -17,8 +18,9 @@ class ProductController extends Controller {
 	public function index()
 	{	
 		$products = Product::all();
+		$categories = Category::all();
 
-		$data = ['products' => $products];
+		$data = ['products' => $products, 'categories' => $categories];
 
 		return view('product.product', $data);
 	}
@@ -70,23 +72,25 @@ class ProductController extends Controller {
 
 	public function search() {
 		$term = REQUEST::input('searchTerm');
+		$categories = Category::all();
 
-    	$validator = Validator::make(['searchTerm' => $term], ['searchTerm' => 'required']);
+    $validator = Validator::make(['searchTerm' => $term], ['searchTerm' => 'required']);
 
-    	if ($validator->fails()) {
-      		return view('product.search', ['products' => array(), 'error' => 'Please enter search term']);
-    	
-    	} else {
-      		
-        $products = Product::where('name', 'like', "%$term%")->get();
-      	
-      	return view('product.search', ['products' => $products, 'error' => '']);
-    	}
+    if ($validator->fails()) {
+      return view('product.search', ['products' => array(), 'error' => 'Please enter search term']);
+
+    } else {
+       
+      $products = Product::where('name', 'like', "%$term%")->get();
+
+      return view('product.search', ['products' => $products, 'error' => '', 'categories'=> $categories]);
+    }
 	}
 
 	public function show($id) {
 		$product = Product::find($id);
+		$categories = Category::all();
 
-		return view('product.show', compact('product'));
+		return view('product.show', compact('product', 'categories'));
 	}
 }

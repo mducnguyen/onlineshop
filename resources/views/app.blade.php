@@ -24,7 +24,7 @@
 
   <div id="PageWrapper">
     
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" id="TopBar">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -38,7 +38,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="{{ url('/') }}">Home</a></li>
+          <li><a href="{{ url('/') }}">Product</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -57,7 +57,15 @@
       </div>
     </div>
   </nav>
-  @yield('searchBar')
+
+  @yield('search')
+  
+  @yield('categoriesNav')
+
+  {{-- @include('product._search') --}}
+
+  {{-- @include('product._categoriesNav') --}}
+
 	@yield('content')
   </div>
 

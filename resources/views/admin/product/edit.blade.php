@@ -1,10 +1,10 @@
-@extends('app')
+@extends('admin.layout')
 
 @section('searchBar')
 	@include('product._search')
 @stop
 @section('content')
-	<h3>Add a new product</h3>
+	<h3>Edit Product</h3>
 
 	<hr>
 	@if($errors->any())
@@ -15,7 +15,7 @@
 		</ul>
 	@endif
 
-  	{!! Form::model($product, ['action' => ['Admin\ProductController@update', $product->productID], 'method' => 'post']) !!}
+  	{!! Form::model($product, ['action' => ['Admin\ProductController@update', $product->productID], 'method' => 'post', 'files' => true]) !!}
     	@include('admin.product._form')
 	{!! Form::close()!!}
 @stop

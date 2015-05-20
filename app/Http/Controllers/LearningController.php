@@ -10,4 +10,8 @@ class LearningController extends Controller {
 	public function showBlade(){
 		return view('learning.showBlade');
 	}
+
+	public function showHund(){
+		return view('learning.showHund');
+	}
 }

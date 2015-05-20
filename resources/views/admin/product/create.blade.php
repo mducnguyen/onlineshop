@@ -1,4 +1,4 @@
-@extends('app')
+@extends('admin.layout')
 
 @section('searchBar')
 	@include('product._search')
@@ -15,7 +15,7 @@
 		</ul>
 	@endif
 
-	{!! Form::open(['action' => 'Admin\ProductController@store', 'method' => 'post'])!!}
-    @include('admin.product._form')
+	{!! Form::open(['action' => ['Admin\ProductController@store'], 'method' => 'post', 'files'=>true])!!}
+    	@include('admin.product._form')
 	{!! Form::close()!!}
 @stop

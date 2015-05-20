@@ -5,11 +5,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model {
 
   protected $fillable = [
-    'name'
+    'name','description'
   ];
 
   public function products() {
-    $this->belongsToMany('App\Product');
+    return $this->belongsToMany('App\Product');
   }
 
 }

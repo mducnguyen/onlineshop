@@ -1,7 +1,13 @@
 @extends('app')
 
-@section('content')
-@include('product._search')
-@include('product._productlist')
+@section('search')
+	@include('product._search')
+@endsection
 
+@section('categoriesNav')
+	@include('product._categoriesNav')
+@endsection
+
+@section('content')
+@include('product._productlist')
 @endsection

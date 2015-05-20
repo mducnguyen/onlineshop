@@ -1,7 +1,50 @@
-
 #PageWrapper {
-  width: 1200px;
+  width: 1110px;
   margin: 0px auto;
+}
+#TopBar {
+  margin-bottom: 110px;
+}
+#Navbar {
+  border: 1px solid #ccc;
+  margin-top: 30px;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+#Navbar ul {
+  list-style: none;
+  /* display: inline-block; */
+  display: block;
+  height: 45px;
+  margin: 0;
+  padding: 0;
+}
+
+#Navbar ul li {
+  height: 45px;
+  /* display: inline-block; */
+  display: block;
+  float: left;
+  padding: 0 10px;
+}
+#Navbar ul li:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+#Navbar ul li a {
+  display: inline-block; 
+  color: #222;
+  line-height: 45px;
+  height: 45px;
+  padding: 0;
+}
+#Navbar ul li.active a {
+  border-bottom: 4px solid #ccc;
+}
+#Navbar ul li a:focus,
+#Navbar ul li a:hover {
+  text-decoration: none;
+  border-bottom: 4px solid #ccc;
 }
 
 #SearchForm input[name=searchTerm] {
@@ -14,7 +57,6 @@
 }
 
 #SearchForm {
-  margin-top: 20px;
   float: right;
 }
 
