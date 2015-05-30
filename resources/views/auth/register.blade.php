@@ -49,7 +49,37 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+                        <!-- street Form input -->
+                        <div class="form-group">
+                            {!! Form::label('street', 'Street: ',['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-6">
+                                {!! Form::text('street', '' , [ 'class' => 'form-control'] ) !!}
+                            </div>
+                        </div>
+                        <!-- zipcode Form input -->
+                        <div class="form-group">
+                            {!! Form::label('zipcode', 'Zip Code: ',['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-6">
+                                {!! Form::text('zipcode', '' , [ 'class' => 'form-control'] ) !!}
+                            </div>
+                        </div>
+                        <!-- City Form input -->
+                        <div class="form-group">
+                            {!! Form::label('city', 'City: ',['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-6">
+                                {!! Form::text('city', '' , [ 'class' => 'form-control'] ) !!}
+                            </div>
+                        </div>
+                        <!-- telephone Form input -->
+                        <div class="form-group">
+                            {!! Form::label('telephone', 'Telephone: ',['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-6">
+                                 {!! Form::text('telephone', '' , [ 'class' => 'form-control'] ) !!}
+                            </div>
+                        </div> 
+                        
+                        
+                        <div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">
 									Register

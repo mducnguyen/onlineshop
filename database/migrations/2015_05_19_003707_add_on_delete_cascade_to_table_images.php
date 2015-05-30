@@ -27,7 +27,7 @@ class AddOnDeleteCascadeToTableImages extends Migration {
 	{
 		Schema::table('images', function(Blueprint $table)
 		{
-			$table->foreign('productID')->references('productsID')->on('products')
+			$table->foreign('productID')->references('productID')->on('products');
 		});
 	}
 

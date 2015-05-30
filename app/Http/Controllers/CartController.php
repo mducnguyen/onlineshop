@@ -1,17 +1,14 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Category;
+use App\Product;
+use Session;
 use App\Http\Controllers\Controller;
+use \Illuminate\Database\Eloquent\ModelNotFoundException; 
 
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller {
-
-	// public function __construct(){
-	// 	$this->beforFilter('before');
-	// }
-
+class CartController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -23,24 +20,35 @@ class CategoryController extends Controller {
 		//
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function add(Request $request)
 	{
-		//
+    $product_id = $request->input('productID');
+
+    try {
+      $product = Product::findOrfail($product_id);
+      $items = Session::get('cart.items');
+      if ($items === null || !is_array($items)) {
+        $items = [ $product_id => 1 ];
+      } else {
+        $items[$product_id] = isset($items[$product_id]) ? $items[$product_id] + 1 : 1; 
+      }
+
+      Session::put('cart.items', $items); 
+
+      return redirect('/');
+
+    } catch (ModelNotFoundException $e) {
+      // _TODO: redirect back
+    }
+
+    
+
 	}
 
 	/**
@@ -51,11 +59,7 @@ class CategoryController extends Controller {
 	 */
 	public function show($id)
 	{
-		$category = Category::find($id);
-		$categories = Category::all();
-		$products = $category->products;
-
-		return view('product.product', compact('products', 'categories'));
+		//
 	}
 
 	/**
@@ -67,7 +71,6 @@ class CategoryController extends Controller {
 	public function edit($id)
 	{
 		//
-
 	}
 
 	/**

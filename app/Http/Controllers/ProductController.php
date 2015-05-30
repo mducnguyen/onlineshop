@@ -20,24 +20,27 @@ class ProductController extends Controller {
 		$products = Product::all();
 		$categories = Category::all();
 
-		$data = ['products' => $products, 'categories' => $categories];
+    $data = [
+      'products' => $products,
+      'categories' => $categories
+    ];
+
+    print_r(Session::get('cart.items'));
 
 		return view('product.product', $data);
 	}
 
+    /**
+     * @return \Illuminate\View\View
+     */
 	public function create() {
 		return view('product.create');
 	}
 
 	public function store(CreateProductRequest $request){
 
-		// $validator = Product::validate(Request::all());
-		// if (!$validator->fails()) {
 			Product::save_product(Request::all());
 			return redirect('/');
-		// } else {
-			// return redirect()->to('/product/create')->withInput()->withErrors($validator->errors());
-		// }
 
 	}
 

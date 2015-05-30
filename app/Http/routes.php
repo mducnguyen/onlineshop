@@ -40,6 +40,9 @@ Route::post('/admin/product/{id}/update', 'Admin\ProductController@update');
 Route::delete('/admin/product/{id}', 'Admin\ProductController@destroy');
 Route::get('/admin/product/search','Admin\ProductController@search');
 
+/* Shopping Cart */
+Route::post('/cart/','CartController@add');
+
 /* Image */
 // Route::post('/admin/product/{id}/image/', 'Admin\ProductController@addImageInput');
 

@@ -16,6 +16,11 @@
         <div class="price">
           {{ number_format($product->price, 2, ',', '.') }} &euro;
         </div>
+
+      {!! Form::open(['action' => 'CartController@add', 'method' => 'post']) !!}
+          {!! Form::hidden('productID', $product->productID) !!}
+          {!! Form::submit('Add to cart', ['class' => 'btn btn-primary form-control']) !!}
+      {!! Form::close()!!}
       </div>
     </div>
   </a>

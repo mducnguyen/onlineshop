@@ -21,11 +21,12 @@ class ProductController extends Controller {
 		$this->replacements = ['page_title' => 'Admin'];
 	}
 
-	/**
-	 * Show the application Test screen to the user.
-	 *
-	 * @return Response
-	 */
+
+    /**
+     * Show the application Test screen to the user.
+     *
+     * @return \Illuminate\View\View
+     */
 	public function index()
 	{	
 		$products = Product::all();
@@ -107,7 +108,7 @@ class ProductController extends Controller {
 
 		if ($validator->fails()) {
 
-			$data =  ['products' => array(), 'error' => 'Please enter search term'];
+			$data =  ['products' => [], 'error' => 'Please enter search term'];
 			return view('product.search', array_merge($data, $this->replacements));
 
 		} else {
