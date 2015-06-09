@@ -41,6 +41,8 @@
         <ul class="nav navbar-nav">
           <li>{!! link_to_action('Admin\ProductController@index', 'Products') !!}</li>
           <li>{!! link_to_action('Admin\CategoryController@index', 'Categories') !!}</li>
+          <li>{!! link_to_action('Admin\AnalyticController@abcAnalyse', 'ABC-Analyse') !!}</li>
+          <li>{!! link_to_action('Admin\AnalyticController@showPartsList', 'Parts List') !!}</li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">

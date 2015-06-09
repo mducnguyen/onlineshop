@@ -72,24 +72,31 @@ class Product extends Model
         return $this->update($params);
     }
 
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     function images()
     {
         return $this->hasMany('App\Image', 'ProductID');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     function categories()
     {
         return $this->belongsToMany('App\Category')->withTimestamps();
     }
 
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     function subParts()
     {
         return $this->belongsToMany('App\Product', "components", "upperPart", "subPart")->withTimestamps();
     }
 
-    function orderposition()
+    function orderpositions()
     {
         return $this->hasMany('App\Orderposition','productID');
     }

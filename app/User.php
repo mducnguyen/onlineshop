@@ -37,6 +37,15 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     public function orders()
     {
-        return $this->hasMany('App\Order', 'customerID');
+        return $this->hasMany('App\Order', 'customerID'); // _TODO: rename to userID
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function basketItems()
+    {
+        return $this->hasMany('App\BasketItem', 'userID');
+    }
+
 }

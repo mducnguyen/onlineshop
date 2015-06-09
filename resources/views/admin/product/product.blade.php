@@ -8,7 +8,7 @@
 <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
 @endif
 
-<div id="ProductList">
+<div id="ProductList" style="overflow: scroll; height: 1000px; width: 900px;">
 	<table class="table table-striped">
 		<tr>
 			<th style="width: 300px">Name</th>
@@ -42,7 +42,8 @@
 
 	</table>
 
-	{!! link_to_action('Admin\ProductController@create', 'Add Product', null, ['class' => 'btn btn-primary', 'id' => 'addButton'])!!}
+
 </div>
+{!! link_to_action('Admin\ProductController@create', 'Add Product', null, ['class' => 'btn btn-primary', 'id' => 'addButton'])!!}
 @endsection
 

@@ -81,7 +81,7 @@ class ProductController extends Controller {
 		return view('admin.product.edit', $data);
 	}
 
-	public function update($id, CreateProductRequest $request){
+	public function update($id, CreateProductRequest $request) {
 
 		$product = Product::find($id);
 

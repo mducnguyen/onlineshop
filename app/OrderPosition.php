@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderPosition extends Model {
 
-    protected $fillable = [''];
+    protected $fillable = ['orderID', 'productID', 'mass'];
+    protected $table = 'orderpositions';
 
 }
