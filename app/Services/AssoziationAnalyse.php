@@ -26,11 +26,17 @@ class AssoziationAnalyse {
     private $productIDs;
 
     /**
+     * @var int >= 2
+     */
+    private $associationLevel;
+
+    /**
      * @param array Product Ids
+     * @param $associationLevel
      * @param $minSupport
      * @param $minConfidence
      */
-    public function __construct(array $productIDs, $minSupport = 0.1, $minConfidence = 0.7) {
+    public function __construct(array $productIDs, $associationLevel = null, $minSupport = 0.1, $minConfidence = 0.7) {
 
         $this->productIDs = $productIDs;
 
@@ -38,105 +44,42 @@ class AssoziationAnalyse {
 
         $this->minConfidence = $minConfidence;
 
+        $this->associationLevel = $associationLevel ?: PHP_INT_MAX - 1;
+
         $this->fetchAllTransactions();
     }
 
-    private function getSubset($itemSet, $n) {
-
-        if( $n == 1 ) {
-            $allSubsets = array_map(function ($item) {
-                return [$item];
-            }, $itemSet);
-            return $allSubsets;
-        }
-
-        $allSubsets = [];
-
-        for( $i = 0; $i < count($itemSet); $i++){
-
-            $current  = $itemSet[$i];
-
-            $postArray = array_slice($itemSet, $i+1);
-
-            $postSubSets = self::getSubset($postArray, $n - 1);
-
-            if(empty($postSubSets)) break;
-
-            foreach($postSubSets as $postSubSet) {
-                $allSubsets[] = array_merge([$current], $postSubSet);
-            }
-
-        }
-
-        return $allSubsets;
-
-    }
-
-
+    /**
+     * @return array<Itemset>
+     */
     public function analyse() {
 
-        $productIDs = $this->productIDs;
+        $anItemset = new Itemset($this->productIDs);
         $lastFreqItemset = [];
         for($k = 1; true; $k++) {
 
-            $fi = $this->getSubset($productIDs, $k);
+            // generate candidate itemsets
+            $candicate_fi = $anItemset->getSubsets($k);
 
-            $supports = [];
-            foreach ($fi as $itemset) {
-                $support = $this->getSupportOf($itemset);
-                if ($support >= $this->minSupport)
-                    $supports[json_encode($itemset)] = $support;
+            // take only qualified itemsets
+            $fi = [];
+            foreach ($candicate_fi as $itemset) {
+                if ($itemset->getSupport() >= $this->minSupport)
+                    $fi[] = $itemset;
             }
 
-            if (empty($supports)){
+            // if no new frequent itemset found, return the last one
+            if (empty($fi) || $k == $this->associationLevel + 1){
                 return $lastFreqItemset;
             }
 
-            $lastFreqItemset = [];
-            foreach($supports as $set => $support) {
-                $lastFreqItemset[] = json_decode($set);
-            }
+            // save found frequent itemset
+            $lastFreqItemset = $fi;
 
-            $productIDs = $this->getProductIDsFromFrequentItemset($lastFreqItemset);
+            $anItemset = ItemSet::merge($fi);
         }
 
-        return $fi;
-    }
-
-    /**
-     * @param array Frequent Itemset
-     * @return array
-     */
-    private function getProductIDsFromFrequentItemset(array $fi) {
-        $productIDs = [];
-        foreach ($fi as $itemset)  {
-            $productIDs = array_merge($productIDs, $itemset);
-        }
-
-        return array_values(array_unique($productIDs));
-    }
-
-    /**
-     * @param $productIDs // _TODO
-     *
-     * @return float support value of products
-     */
-    private function getSupportOf($productIDs){
-
-        $support = 0;
-
-        foreach($this->allTransactions as $transactions) {
-            $contain = true;
-            foreach($productIDs as $productID) {
-                if(!in_array($productID, $transactions)){
-                    $contain = false;
-                    break;
-                }
-            }
-            if($contain) $support++;
-        }
-
-        return ((double)$support)/count($this->allTransactions);
+        return $candicate_fi;
     }
 
     private function fetchAllTransactions()

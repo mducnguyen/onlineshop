@@ -14,7 +14,6 @@ class AssociationController extends Controller {
 	 */
 	public function index()
 	{
-        An
 	}
 
 	/**

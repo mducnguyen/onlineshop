@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f142c20-7f07-47c0-b8f4-37e1feed47da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Services/AssoziationAnalyse.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/analytic/association.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/database.sqlite" afterPath="$PROJECT_DIR$/storage/database.sqlite" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Services/ItemSet.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AnalyticController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AnalyticController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Order.php" afterPath="$PROJECT_DIR$/app/Order.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/layout.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/layout.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/product/product.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/product/product.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/AssociationController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssociationController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/AssoziationAnalyse.php" afterPath="$PROJECT_DIR$/app/Services/AssoziationAnalyse.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="onlineShop.iws" />
@@ -42,14 +37,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="association.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/analytic/association.blade.php">
+      <file leaf-file-name="AnalyticController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AnalyticController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12486993" vertical-offset="0" max-vertical-offset="961">
-              <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
-              <folding>
-                <element signature="e#371#391#0#HTML" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.33298647" vertical-offset="1700" max-vertical-offset="2740">
+              <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,7 +55,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2015_05_19_003707_add_on_delete_cascade_to_table_images.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_05_28_142109_create_orders_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_05_28_155033_change_order_positions_table_to_orderpositions.php" />
         <option value="$PROJECT_DIR$/database/migrations/2015_05_28_174615_add_column_mass.php" />
@@ -104,15 +96,16 @@
         <option value="$PROJECT_DIR$/resources/views/vendor/advertisement/advertisement.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AdvertisementController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/analytic/abc.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/AssociationController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Order.php" />
         <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layout.blade.php" />
-        <option value="$PROJECT_DIR$/app/Services/AssoziationAnalyse.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AnalyticController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/product/product.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/analytic/association.blade.php" />
+        <option value="$PROJECT_DIR$/app/Services/ItemSet.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/AssociationController.php" />
+        <option value="$PROJECT_DIR$/app/Services/AssoziationAnalyse.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AnalyticController.php" />
       </list>
     </option>
   </component>
@@ -732,13 +725,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/category/_form.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36437246" vertical-offset="0" max-vertical-offset="988">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33299595" vertical-offset="4691" max-vertical-offset="16060">
@@ -988,13 +974,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AssociationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2705515" vertical-offset="0" max-vertical-offset="1740">
-          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Services/AbcAnalyser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.70759624" vertical-offset="0" max-vertical-offset="2160">
@@ -1103,76 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/AssoziationAnalyse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.97814775" vertical-offset="1720" max-vertical-offset="3000">
-          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-          <folding>
-            <marker date="1435093389000" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
-            <marker date="1435093389000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder=" @var array ..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder=" @var Collection ..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder=" @param array Product Ids ..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder=" @param array Frequent Itemset ..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder=" @param $productIDs // _TODO ..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1435093389000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AnalyticController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8740895" vertical-offset="1680" max-vertical-offset="2740">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding>
-            <marker date="1435093623000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder=" @return Response ..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1435093623000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/product/product.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10509886" vertical-offset="99" max-vertical-offset="1060">
@@ -1209,11 +1118,123 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/analytic/association.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12486993" vertical-offset="0" max-vertical-offset="961">
-          <caret line="6" column="75" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.541103" vertical-offset="0" max-vertical-offset="961">
+          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="44" />
           <folding>
-            <element signature="e#371#391#0#HTML" expanded="true" />
+            <marker date="1435094276000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435094276000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1435094276000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435094276000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435094276000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435094276000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1435094276000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435094276000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435094276000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435094276000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AssociationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2705515" vertical-offset="0" max-vertical-offset="1720">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <marker date="1435099575000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder=" Display a listing of the resource. ..." />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder=" Show the form for creating a new resource. ..." />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder=" Store a newly created resource in storage. ..." />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder=" Display the specified resource. ..." />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder=" Show the form for editing the specified resource. ..." />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder=" Update the specified resource in storage. ..." />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder=" Remove the specified resource from storage. ..." />
+            <marker date="1435099575000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/ItemSet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3329865" vertical-offset="1699" max-vertical-offset="3300">
+          <caret line="154" column="30" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
+          <folding>
+            <marker date="1435099507000" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" @var array all productIDs ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" @var int ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" @var float support score ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" @var array productIDs grouped by transactions ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" @param array $productIDs ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" @param $n number of elements in subsets ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" Return Support score ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" @return int ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" Calculate Support score ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" @return array ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" @param array $itemsets ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder=" productIDs grouped by Transactions ..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435099507000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/AssoziationAnalyse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47866806" vertical-offset="300" max-vertical-offset="1860">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <marker date="1435100349000" expanded="false" signature="-1:-1" placeholder=" Created by PhpStorm. ..." />
+            <marker date="1435100349000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder=" @var array ..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder=" @var Collection ..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder=" @var int &gt;= 2 ..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder=" @param array Product Ids ..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder=" @return array&lt;Itemset&gt; ..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1435100349000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AnalyticController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33298647" vertical-offset="1700" max-vertical-offset="2740">
+          <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

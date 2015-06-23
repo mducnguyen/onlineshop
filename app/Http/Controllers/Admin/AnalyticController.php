@@ -121,12 +121,12 @@ class AnalyticController extends Controller
 
         $productIDs = Product::all()->lists('productID');
 
-        $assocAnalyzer = new AssoziationAnalyse($productIDs);
-        $result = $assocAnalyzer->analyse();
+        $assocAnalyzer = new AssoziationAnalyse($productIDs, 2);
+        $itemsets = $assocAnalyzer->analyse();
 
         $product_sets = [];
-        foreach($result as $id_set) {
-            $product_sets[] = Product::find($id_set);
+        foreach($itemsets as $itemset) {
+            $product_sets[] = Product::find($itemset->getProductIDs());
         }
 
         $data = ['product_sets' => $product_sets];
