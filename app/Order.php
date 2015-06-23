@@ -31,7 +31,7 @@ class Order extends Model
         return $order;
     }
 
-    public function orderpositions()
+    function orderpositions()
     {
         return $this->hasMany('App\OrderPosition', 'orderID');
     }

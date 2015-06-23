@@ -4,8 +4,10 @@ use App\Http\Requests;
 use App\Services\AbcAnalyser;
 use App\Product;
 use App\Http\Controllers\Controller;
+use App\Services\AssoziationAnalyse;
 use App\Services\ComponentLister;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class AnalyticController extends Controller
 {
@@ -108,11 +110,29 @@ class AnalyticController extends Controller
 
         $data = [];
         $data = array_merge($this->getPageVars(), $data);
-//        print_r($partsList);
+
         $data['partsList'] = [$partsList];
         $data['products'] = [$products];
 
         return view('admin.analytic.partsList', $data);
+    }
+
+    public function associationAnalyse() {
+
+        $productIDs = Product::all()->lists('productID');
+
+        $assocAnalyzer = new AssoziationAnalyse($productIDs);
+        $result = $assocAnalyzer->analyse();
+
+        $product_sets = [];
+        foreach($result as $id_set) {
+            $product_sets[] = Product::find($id_set);
+        }
+
+        $data = ['product_sets' => $product_sets];
+        $data = array_merge($this->getPageVars(), $data);
+
+        return view ('admin.analytic.association', $data);
     }
 
 }

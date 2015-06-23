@@ -12,8 +12,6 @@
 	<table class="table table-striped">
 		<tr>
 			<th style="width: 300px">Name</th>
-			{{-- <th>Description</th> --}}
-			{{-- <th>Technical Spec</th> --}}
 			<th>Price</th>
 			<th>Units</th>
 			<th style="width: 150px">Action</th>

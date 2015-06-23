@@ -50,3 +50,5 @@
     Route::get('/admin/analytics/partslist/{id}','Admin\AnalyticController@partsListOf');
 
     Route::get('/hotsale/', 'AdvertisementController@index');
+
+    Route::get('/admin/analytics/association','Admin\AnalyticController@associationAnalyse');
