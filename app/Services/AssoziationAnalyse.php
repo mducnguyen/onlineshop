@@ -36,7 +36,7 @@ class AssoziationAnalyse {
      * @param $minSupport
      * @param $minConfidence
      */
-    public function __construct(array $productIDs, $associationLevel = null, $minSupport = 0.1, $minConfidence = 0.7) {
+    public function __construct(array $productIDs, $associationLevel = null, $minSupport = 0.1, $minConfidence = 0.4) {
 
         $this->productIDs = $productIDs;
 
@@ -44,9 +44,38 @@ class AssoziationAnalyse {
 
         $this->minConfidence = $minConfidence;
 
-        $this->associationLevel = $associationLevel ?: PHP_INT_MAX - 1;
+        $this->associationLevel = (is_null($associationLevel) || $associationLevel < 2) ? PHP_INT_MAX - 1 : $associationLevel;
 
         $this->fetchAllTransactions();
+    }
+
+    public function analyseConfidence()
+    {
+        $rules = [];
+
+        $itemsets = $this->analyse();
+
+        foreach($itemsets as $itemset) {
+
+            $size = $itemset->getSize();
+
+            for($i = 1; $i < $size; $i++) {
+
+                $subsets = $itemset->getSubsets($i);
+
+                foreach($subsets as $set) {
+
+                    $rule = new Rule($itemset, $set);
+                    if ($rule->getConfidence() >= $this->minConfidence) {
+                        $rules[] = $rule;
+                    }
+
+                }
+
+            }
+        }
+
+        return $rules;
     }
 
     /**

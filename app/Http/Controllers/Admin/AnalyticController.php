@@ -6,7 +6,7 @@ use App\Product;
 use App\Http\Controllers\Controller;
 use App\Services\AssoziationAnalyse;
 use App\Services\ComponentLister;
-use Illuminate\Http\Request;
+use Request;
 use Illuminate\Support\Collection;
 
 class AnalyticController extends Controller
@@ -118,18 +118,21 @@ class AnalyticController extends Controller
     }
 
     public function associationAnalyse() {
-
         $productIDs = Product::all()->lists('productID');
 
-        $assocAnalyzer = new AssoziationAnalyse($productIDs, 2);
+        $groupSize = Request::input('groupsize', -1);
+
+        $assocAnalyzer = new AssoziationAnalyse($productIDs, $groupSize, 0.1, 0.5);
+
         $itemsets = $assocAnalyzer->analyse();
 
-        $product_sets = [];
-        foreach($itemsets as $itemset) {
-            $product_sets[] = Product::find($itemset->getProductIDs());
-        }
+        $rules = $assocAnalyzer->analyseConfidence();
 
-        $data = ['product_sets' => $product_sets];
+        $data = [
+            'itemsets' => $itemsets,
+            'rules'    => $rules
+        ];
+
         $data = array_merge($this->getPageVars(), $data);
 
         return view ('admin.analytic.association', $data);

@@ -8,6 +8,7 @@
     namespace App\Services;
 
     use App\Order;
+    use App\Product;
 
     class ItemSet
     {
@@ -54,6 +55,17 @@
             return array_map(function ($subset) {
                 return new ItemSet($subset);
             }, $subsets_array);
+        }
+
+        /**
+         * @param ItemSet $set
+         * @return ItemSet
+         */
+        public function getComplementItemSet(ItemSet $set)
+        {
+            $complements = array_diff($this->getProductIDs(), $set->getProductIDs());
+
+            return new ItemSet($complements);
         }
 
         private function getSubsetsArray($itemSet, $n)
@@ -130,6 +142,13 @@
         }
 
         /**
+         * @return array
+         */
+        public function getProducts() {
+            return Product::find($this->getProductIDs());
+        }
+
+        /**
          * @param array $itemsets
          *
          * @return Itemset
@@ -158,7 +177,8 @@
                     self::$transactions[] = $order->orderpositions->lists('productID');
                 }
             }
-
+            echo "<pre>";
+            print_r(self::$transactions);
             return self::$transactions;
         }
     }
